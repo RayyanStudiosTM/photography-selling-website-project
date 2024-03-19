@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Control</title>
+    <style>
+        /* CSS styles for layout templates */
+        .layout {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none; /* Initially hide all layouts */
+        }
+
+        .active {
+            display: block; /* Display active layout */
+        }
+
+        /* Button styles */
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+        
+        /* Layout colors */
+        .layout1 {
+            background-color: #f0f0f0; /* Light gray */
+        }
+
+        .layout2 {
+            background-color: #ffd700; /* Gold */
+        }
+
+        .layout3 {
+            background-color: #87ceeb; /* Sky blue */
+        }
+    </style>
+</head>
+<body>
+    <h1>Layout Control</h1>
+    <div id="layoutContainer">
+        <!-- Layout templates -->
+        <div class="layout layout1">
+            <h2>Layout 1</h2>
+            <p>This is layout 1.</p>
+        </div>
+        <div class="layout layout2">
+            <h2>Layout 2</h2>
+            <p>This is layout 2.</p>
+        </div>
+        <div class="layout layout3">
+            <h2>Layout 3</h2>
+            <p>This is layout 3.</p>
+        </div>
+    </div>
+
+    <!-- Buttons to switch between layouts -->
+    <div id="buttons">
+        <button onclick="showLayout('layout1')">Layout 1</button>
+        <button onclick="showLayout('layout2')">Layout 2</button>
+        <button onclick="showLayout('layout3')">Layout 3</button>
+    </div>
+
+    <script>
+        // JavaScript to control layout switching
+        function showLayout(layoutName) {
+            const layouts = document.querySelectorAll('.layout');
+            layouts.forEach(layout => {
+                layout.classList.remove('active');
+                if (layout.classList.contains(layoutName)) {
+                    layout.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
